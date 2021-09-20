@@ -1,0 +1,3 @@
+module quickPro {
+	requires junit;
+}
