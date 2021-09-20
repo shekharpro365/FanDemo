@@ -13,7 +13,7 @@ The unit has 2 pull cords:
 		We can assume the unit is always powered (no wall switch).
 To avoid running a infinite loop for a operational fan, different tests cases simulates change of speed and direction.
 				
-This demo uses Command Pattern. To execute the demo run:
+This demo uses Command Pattern. This way we can decouple the final receiver of the command and if needed, reuse Two-Cord controller to operate any other appliance ( like Dimmable Light Bulb).  To execute the demo run:
 Fan.java, its main method invokes the Command and Receiver.
 
 To Test :
