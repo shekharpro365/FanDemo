@@ -1,5 +1,7 @@
 package org.fans;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.fans.common.enums.Direction;
 
 /**
@@ -10,9 +12,10 @@ import org.fans.common.enums.Direction;
 		§  Once the direction has been reversed, it remains reversed as we cycle through the speed settings, until reversed again.
  **/
 public class Fan {
+	private static final Logger log = LogManager.getLogger(Fan.class);
 	private Direction fanDirection  = Direction.FORWARD;
 	final int OFF = 0;
-	int fanSpeed = OFF;
+	private int fanSpeed = OFF;
 	
 	/**
 	 * Changes the speed of the fan rotation. 
@@ -25,7 +28,7 @@ public class Fan {
 		 else  
 			fanSpeed = OFF;
 		
-		System.out.println("Changing Speed , Current Speed is :"+ fanSpeed);
+		log.info("Changing Speed , Current Speed is :"+ fanSpeed);
 	}
 	
 	/**
@@ -37,14 +40,23 @@ public class Fan {
 			fanDirection = Direction.BACKWARD;
 		else
 			fanDirection =  Direction.FORWARD;
-		System.out.println("Changing Direction, Current Direction is :"+ fanDirection);
+		log.info("Changing direction of fan , current direction is :"+ fanDirection);
+		log.info("After changing direction, current speed is :"+ fanSpeed);
 	}
 	
-	Direction getCurrentDirection() {
+	/**
+	 * @return Direction
+	 * Returns current direction of fan.
+	 */
+	protected Direction getCurrentDirection() {
 		return fanDirection;
 	}
 	
-	int getCurrentSpeed() {
+	/**
+	 * @return int
+	 * Returns current speed of fan.
+	 */
+	protected int getCurrentSpeed() {
 		return fanSpeed;
 	}
 	

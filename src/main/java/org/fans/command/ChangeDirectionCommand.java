@@ -2,6 +2,10 @@ package org.fans.command;
 
 import org.fans.Fan;
 
+/**
+ * Command class to change direction of the Fan.
+ *
+ */
 public class ChangeDirectionCommand implements Command {
 	private Fan fancom;
 	
@@ -9,7 +13,9 @@ public class ChangeDirectionCommand implements Command {
 		this.fancom = fan;
 	}
 	
-	@Override
+	/**
+	 * Calling execute() changes the direction of fan as per implementation.
+	 */
 	public void execute() {
 		fancom.changeDirection();
 	}
